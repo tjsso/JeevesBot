@@ -1,8 +1,6 @@
-import DomainObject.BotListener;
+package Main;
 
-//import org.pircbotx.Configuration;
 import EntityObject.CommandEntity;
-import EntityObject.OutputEntity;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -15,7 +13,9 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.io.File;
 
-public class Main {
+//import org.pircbotx.Configuration;
+
+public class MainB {
 
 	public static final String BOTNAME = "Jeeves";
 	public static final String OAUTH = "oauth:hm42gu73uahs8iw7jbz0hbe5xho537";
@@ -24,21 +24,15 @@ public class Main {
 
 	public static PircBotX bot;
 
-	private static SessionFactory factory;
+	public static SessionFactory factory;
 
 
 	public static void main(String[] args) throws Exception {
 
-		//URL url = Main.class.getResource("java/hibernate.cfg.xml");
-		File file = new File("src/hibernate.cfg.xml");
-		System.out.println(file.getAbsolutePath() + " " + file.length());
-
 		try {
-			factory = new Configuration().configure(file).addAnnotatedClass(OutputEntity.class).buildSessionFactory();
-			        //addPackage("com.xyz") //add package if used.
+			factory = new Configuration().configure(HIBERNATE_CONFIG).addAnnotatedClass(CommandEntity.class).buildSessionFactory();
 		} catch (Throwable ex) {
 			System.err.println("Failed to create sessionFactory object." + ex);
-			ex.printStackTrace();
 			throw new ExceptionInInitializerError(ex);
 		}
 

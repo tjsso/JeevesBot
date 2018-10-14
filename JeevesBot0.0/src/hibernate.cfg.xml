@@ -10,11 +10,12 @@
         <property name="connection.driver_class">org.sqlite.JDBC</property>
         <property name="connection.url">jdbc:sqlite:src/JeevesBot.db</property>
         <!--property name="connection.username"></property>
-        <property name="connection.password"></property-->
-        <!--property name="hibernate.id.new_generator_mappings">false</property-->
+        <property name="connection.password"></property>
+        <property name="hibernate.id.new_generator_mappings">false</property-->
 
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <mapping class="EntityObject.CommandEntity"/>
+        <mapping class="EntityObject.OutputEntity"/>
     </session-factory>
 </hibernate-configuration>

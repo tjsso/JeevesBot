@@ -37,9 +37,9 @@ public class CommandEntity {
         this.command = command;
     }
 
-    public Integer getOutputId() {
-        return outputId;
-    }
+    //@OneToOne(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "id")
+    public Integer getOutputId() {return outputId;}
 
     public void setOutputId(Integer outputId) {
         this.outputId = outputId;
